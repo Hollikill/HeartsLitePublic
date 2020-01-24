@@ -1,7 +1,3 @@
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
-import java.util.Objects;
-
 public class Card {
 
     private String name, suit;
@@ -27,31 +23,31 @@ public class Card {
 
             int t = 0;
             int y = 0;
-            switch (String.valueOf(other.getSuit().charAt(0))) {
-                case "c" :
+            switch (other.getSuit().charAt(0)) {
+                case 'c':
                     t = 4;
                     break;
-                case "s" :
+                case 's':
                     t = 3;
                     break;
-                case "h" :
+                case 'h':
                     t = 2;
                     break;
-                case "d" :
+                case 'd':
                     t = 1;
                     break;
             }
-            switch (String.valueOf(suit.charAt(0))) {
-                case "c" :
+            switch (suit.charAt(0)) {
+                case 'c':
                     y = 4;
                     break;
-                case "s" :
+                case 's':
                     y = 3;
                     break;
-                case "h" :
+                case 'h':
                     y = 2;
                     break;
-                case "d" :
+                case 'd':
                     y = 1;
                     break;
             }

@@ -1,5 +1,6 @@
 public enum Cards {
-    ONE("1");
+    TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8),
+    NINE(9), TEN(10), JACK(11), QUEEN(12), KING(13), ACE(14);
 
     private String name;
     private int pos;
@@ -12,14 +13,19 @@ public enum Cards {
             switch(pos){
                 case 11:
                     name = "j";
+                    break;
                 case 12:
                     name = "q";
                     break;
                 case 13:
-                    name =
+                    name = "k";
+                    break;
+                case 14:
+                    name = "a";
             }
-            if(pos==11) name = "k";
         }
+
+        this.pos = pos;
     }
 
     Cards(String name, int pos){
