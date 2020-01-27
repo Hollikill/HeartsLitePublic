@@ -1,0 +1,8 @@
+c3(3).equals(c3(3)) is true
+c3(3).equals(d3(3)) is false
+c3(3).compareTo(c3(3)) is 0
+c3(3).compareTo(d3(3)) is 1
+d3(3).compareTo(c3(3)) is -1
+hA(14).compareTo(s7(7)) is -1
+s7(7).compareTo(hA(14)) is 1
+s7(7).compareTo(s6(6)) is 1
