@@ -1,3 +1,3 @@
 # Hearts Lite
 
-Class Assignment for AP Computer Science. Pair Programming work.
+Some **pair programming** for a [computer science class](lasacs.com)
