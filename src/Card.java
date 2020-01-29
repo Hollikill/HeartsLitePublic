@@ -1,4 +1,4 @@
-public class Card {
+public class Card implements Comparable<Object> {
 
     private String name, suit;
     private int value;
@@ -15,6 +15,7 @@ public class Card {
         this.value = value;
     }
 
+    @Override
     public int compareTo(Object o){
         if(o instanceof Card){
             Card other = (Card)o;

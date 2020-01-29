@@ -1,0 +1,4 @@
+Created Player -> Kara Jones 0
+After scoring 6 points -> Kara Jones 6
+Created Player -> Bob Smith 27
+After scoring 65 points -> Bob Smith 92
