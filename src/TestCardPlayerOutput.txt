@@ -1,0 +1,12 @@
+New CardPlayer -> Kara Jones (0) []
+After adding 6 specific cards. Player -> Kara Jones (0) [d3(3), hA(14), s6(6), s7(7), c2(2), c3(3)]
+Played c3(3) at index 5 and updated score to 27 points. Player -> Kara Jones (27) [d3(3), hA(14), s6(6), s7(7), c2(2)]
+Cards played in round -> []
+Cards played in game -> []
+Chose 2 of clubs -> c2(2) Player -> Kara Jones (27) [d3(3), hA(14), s6(6), s7(7)]
+Cards played in round -> [s10(10)]
+RANDOMLY chosen spade -> s7(7) Player -> Kara Jones (27) [d3(3), hA(14), s6(6)]
+Cards played in round -> [c9(9)]
+heart chosen -> hA(14) Player -> Kara Jones (27) [d3(3), s6(6)]
+Cards played in round -> []
+RANDOMLY chosen card -> d3(3)
