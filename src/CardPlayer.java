@@ -26,58 +26,52 @@ public class CardPlayer extends Player {
         if(playedGame.isEmpty()&&playedRound.isEmpty()){
             for (int i = 0; i < hand.size(); i++) {
                 Card x = hand.get(i);
-                if (x.getSuit().equals("clubs") && x.getValue() == 2) {
-                    playCard(i);
-                    playedRound.add(x);
-                    playedGame.add(x);
-                    return x;
+                if (x.getSuit().startsWith("c") && x.getValue() == 2) {
+                    return playCard(i, playedRound, playedGame);
                 }
             }
         }
         else if (playedRound.isEmpty()) {
-            Card card = playCard((int)(Math.random() * hand.size()));
-            playedRound.add(card);
-            playedGame.add(card);
-            return card;
+            return playCard((int)(Math.random() * hand.size()), playedRound, playedGame);
         }
         else {
-            String suit = playedRound.get(0).getSuit();
+            String leadingSuit = playedRound.get(0).getSuit();
             ArrayList<Card> matchesSuit = new ArrayList<>();
             for(Card x : hand){
-                if(x.getSuit().equals(suit)) matchesSuit.add(x);
+                if(x.getSuit().equals(leadingSuit)) matchesSuit.add(x);
             }
 
             if(!matchesSuit.isEmpty()){
                 //Not empty: Play random from matchesSuit
-                Card card = matchesSuit.get((int)(Math.random() * matchesSuit.size()));
-                playCard(card);
-                playedRound.add(card);
-                playedGame.add(card);
-                return card;
+                return playCard(matchesSuit.get((int)(Math.random() * matchesSuit.size())), playedRound, playedGame);
             }
             else{
                 ArrayList<Card> hearts = new ArrayList<>();
                 for(Card x : hand){
-                    if(x.getSuit().equals("hearts")) hearts.add(x);
+                    if(x.getSuit().startsWith("h")) hearts.add(x);
                 }
 
                 if(!hearts.isEmpty()){
                     //Not empty: Play random from HEARTS
-                    Card card = hearts.get((int)(Math.random() * hearts.size()));
-                    playCard(card);
-                    playedRound.add(card);
-                    playedGame.add(card);
-                    return card;
+                    return playCard(hearts.get((int)(Math.random() * hearts.size())), playedRound, playedGame);
                 }
                 else{
-                    Card card = playCard((int)(Math.random() * hand.size()));
-                    playedRound.add(card);
-                    playedGame.add(card);
-                    return card;
+                    return playCard((int)(Math.random() * hand.size()), playedRound, playedGame);
                 }
             }
         }
         return null;
+    }
+
+    private Card playCard(Card c, ArrayList<Card> round, ArrayList<Card> game){
+        hand.remove(c);
+        round.add(c);
+        game.add(c);
+        return c;
+    }
+
+    private Card playCard(int c, ArrayList<Card> round, ArrayList<Card> game){
+        return playCard(hand.get(c), round, game);
     }
 
     public String toString() {
