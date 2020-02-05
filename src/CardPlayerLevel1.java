@@ -1,7 +1,9 @@
-import java.util.ArrayList;
+import java.util.*;
 
-public class CardPlayerLevel1 extends CardPlayer {
-    public CardPlayerLevel1(String name, int score, ArrayList<Card> hand) {
-        super(name, score, hand);
+public class CardPlayerLevel1 {
+    public Card chooseCard(ArrayList<Card> playedRound, ArrayList<Card> playedGame) {
+        
+
+        return null;
     }
 }
