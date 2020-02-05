@@ -1,3 +1,9 @@
+/*
+/    Authors:
+/        Hollister Ream
+/        Gabriel (I don't know his last name)
+*/
+
 public class TestCard {
     public static void main(String[] args) {
         Card c3 = new Card("3", "clubs", 3);

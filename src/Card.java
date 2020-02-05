@@ -1,3 +1,9 @@
+/*
+/    Authors:
+/        Hollister Ream
+/        Gabriel (I don't know his last name)
+*/
+
 public class Card implements Comparable<Object> {
 
     private String name, suit;

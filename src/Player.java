@@ -1,3 +1,9 @@
+/*
+/    Authors:
+/        Hollister Ream
+/        Gabriel (I don't know his last name)
+*/
+
 public class Player {
     protected String name;
     protected int score;

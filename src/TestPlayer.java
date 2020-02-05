@@ -1,3 +1,9 @@
+/*
+/    Authors:
+/        Hollister Ream
+/        Gabriel (I don't know his last name)
+*/
+
 public class TestPlayer {
     public static void main(String[] args) {
         Player player = new Player("Kara Jones", 0);

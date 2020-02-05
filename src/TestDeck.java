@@ -1,3 +1,9 @@
+/*
+/    Authors:
+/        Hollister Ream
+/        Gabriel (I don't know his last name)
+*/
+
 import java.util.ArrayList;
 
 public class TestDeck {

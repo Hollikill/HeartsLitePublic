@@ -1,3 +1,8 @@
+/*
+/    Author:
+/        Hollister Ream
+*/
+
 import java.util.*;
 
 public class CardPlayerLevel1 extends CardPlayer {
