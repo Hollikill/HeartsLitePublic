@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CardPlayer extends Player {
-    private ArrayList<Card> hand, takenCards;
+    protected ArrayList<Card> hand, takenCards;
 
     public CardPlayer(String name, int score, ArrayList<Card> hand) {
         super(name, score);
@@ -63,14 +63,14 @@ public class CardPlayer extends Player {
         return null;
     }
 
-    private Card playCard(Card c, ArrayList<Card> round, ArrayList<Card> game){
+    public Card playCard(Card c, ArrayList<Card> round, ArrayList<Card> game){
         hand.remove(c);
         round.add(c);
         game.add(c);
         return c;
     }
 
-    private Card playCard(int c, ArrayList<Card> round, ArrayList<Card> game){
+    public Card playCard(int c, ArrayList<Card> round, ArrayList<Card> game){
         return playCard(hand.get(c), round, game);
     }
 
