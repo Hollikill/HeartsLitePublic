@@ -157,6 +157,26 @@ public class CardPlayerLevel1 extends CardPlayer {
                     }
                     playCard(highest, playedRound, playedGame);
                 }
+                else {
+                    int val = 0;
+                    int handval = 0;
+                    int highestLow = 0;
+                    int index = 0;
+                    for (Card c : hand) {
+                        if (c.getValue() < val) {
+                            if (c.getValue() > handval) {
+                                handval = c.getValue();
+                                highestLow = index;
+                            }
+                            else if (c.getSuit() != "hearts" && c.getValue() >= (handval - 1)) {
+                                handval = c.getValue();
+                                highestLow = index;
+                            }
+                        }
+                        index++;
+                    }
+                    playCard(highestLow, playedRound, playedGame);
+                }
             }
         }
         
