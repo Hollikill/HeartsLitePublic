@@ -1,3 +1,8 @@
+/*
+/    Author:
+/        Hollister Ream
+*/
+
 import java.util.*;
 
 public class CardGame {
@@ -7,15 +12,50 @@ public class CardGame {
     int numberOfPlayers;
     int currentPlayer;
     
-    public void CardGame (String name, ArrayList<CardPlayer> c, int num, int whichnum) {
+    public CardGame (String name, String names[], int num, int whichnum) {
         deckOfCards = new Deck();
         nameOfGame = name;
-        players = c;
         numberOfPlayers = num;
         currentPlayer = whichnum;
+        players = new ArrayList<CardPlayer>();
+        for (String str : names) {
+            players.add(new CardPlayer(str, 0, new ArrayList<Card>()));
+        }
     }
 
-    public void CardGame () {
-        this.CardGame("", new ArrayList<CardPlayer>(), 0, 0);
+    public CardGame () {
+        deckOfCards = new Deck();
+        nameOfGame = "";
+        players = new ArrayList<CardPlayer>();
+        for (int i = 0; i < 4; i++) {
+            players.add(new CardPlayer("", 0, new ArrayList<Card>()));
+        }
+        numberOfPlayers = 4;
+        currentPlayer = 0;
+    }
+
+    public void deal (int toWho) {
+        for (int i = 0; i < 13; i++) {
+            Card c = deckOfCards.dealTopCard();
+            players.get(toWho).addCard(c);
+        }
+    }
+
+    public void playGame () {
+        int rounds = 13;
+
+        int firstP = -1;
+
+        for (CardPlayer c : players) {
+            if (c.has2Club()) {
+                firstP = players.indexOf(c);
+            }
+        }
+
+        if (firstP == -1) {
+            System.out.println("No 2 of clubs");
+        }
+        else {
+        }
     }
 }

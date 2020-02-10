@@ -100,4 +100,14 @@ public class CardPlayer extends Player {
     public void setTakenCards(ArrayList<Card> takenCards) {
         this.takenCards = takenCards;
     }
+
+    public boolean has2Club () {
+        boolean b = false;
+        for (Card c : hand) {
+            if (c.getValue() == 2 && c.getSuit() == "clubs") {
+                b = true;
+            }
+        }
+        return b;
+    }
 }
