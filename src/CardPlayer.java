@@ -101,6 +101,10 @@ public class CardPlayer extends Player {
         this.takenCards = takenCards;
     }
 
+    public void addTakenCard(Card c) {
+        this.takenCards.add(c);
+    }
+
     public boolean has2Club () {
         boolean b = false;
         for (Card c : hand) {

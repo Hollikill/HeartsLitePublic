@@ -62,16 +62,46 @@ public class CardGame {
         }
 
         for (int i = 0; i < rounds ; i++) {
+            String leadSuit = "";
+
+            //play cards
             for (int p = 0; p < 4; p++) {
                 Card c = players.get((firstP + p)%4).chooseCard(roundCards, gameCards);
                 System.out.println(players.get((firstP + p)%4).getName() + " played the " + c.getCleanName());
                 if (p == 0) {
-                    
+                    leadSuit = c.getSuit();
                 }
             }
+
+            //analyze score
+            int mostValue = 0;
+            int curIndex = -1;
+            int bigIndex = 1;
+            for (Card c : roundCards) {
+                if (c.getSuit() == leadSuit && c.getValue() > mostValue) {
+                    mostValue = c.getValue();
+                    bigIndex = curIndex;
+                }
+                curIndex++;
+            }
+
+            //give cards to winner
+            for (Card c : roundCards) {
+                players.get((firstP + bigIndex)%4).addTakenCard(c);
+            }
+
+            //prepare for new round
             while (!roundCards.isEmpty()) {
                 roundCards.remove(0);
             }
         }
+
+        //score
+        /*if (c.getSuit() == "hearts") {
+            players.get((firstP + bigIndex)%4).updateScore(1);
+        }
+        else if (c.getSuit() == "spades" && c.getValue() == 12) {
+            players.get((firstP + bigIndex)%4).updateScore(13);
+        }*/
     }
 }
