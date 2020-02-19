@@ -115,4 +115,25 @@ public class Card implements Comparable<Object> {
     public void setValue(int value) {
         this.value = value;
     }
+
+    public String getCleanName() {
+        String str = "";
+        if (value == 14) {
+            str += "Ace";
+        }
+        else if (value == 13) {
+            str += "King";
+        }
+        else if (value == 12) {
+            str += "Queen";
+        }
+        else if (value == 11) {
+            str += "Jack";
+        }
+        else {
+            str += value;
+        }
+        str += " of " + suit;
+        return str;
+    }
 }

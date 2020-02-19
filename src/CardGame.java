@@ -11,6 +11,8 @@ public class CardGame {
     ArrayList<CardPlayer> players;
     int numberOfPlayers;
     int currentPlayer;
+    ArrayList<Card> roundCards;
+    ArrayList<Card> gameCards;
     
     public CardGame (String name, String names[], int num, int whichnum) {
         deckOfCards = new Deck();
@@ -56,7 +58,20 @@ public class CardGame {
             System.out.println("No 2 of clubs");
         }
         else {
-            
+            currentPlayer = firstP;
+        }
+
+        for (int i = 0; i < rounds ; i++) {
+            for (int p = 0; p < 4; p++) {
+                Card c = players.get((firstP + p)%4).chooseCard(roundCards, gameCards);
+                System.out.println(players.get((firstP + p)%4).getName() + " played the " + c.getCleanName());
+                if (p == 0) {
+                    
+                }
+            }
+            while (!roundCards.isEmpty()) {
+                roundCards.remove(0);
+            }
         }
     }
 }
