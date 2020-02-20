@@ -6,6 +6,7 @@
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 public class Deck {
 
@@ -39,11 +40,15 @@ public class Deck {
         return cards.remove(0);
     }
 
-    public void shuffle(){
-        shuffle(20);
+    public void shuffleAlt(){
+        shuffleAlt(20);
     }
 
-    public void shuffle(int numOfTimes){
+    public void shuffle() {
+        Collections.shuffle(cards);
+    }
+
+    public void shuffleAlt(int numOfTimes){
         for(int i = 0; i < numOfTimes; i++){
             int cardsToTake = (int)(Math.random()*9D+2D);
             ArrayList<Card> takeOut = new ArrayList<>();
