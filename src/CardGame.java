@@ -91,17 +91,25 @@ public class CardGame {
             }
 
             //prepare for new round
+            firstP = (firstP + bigIndex) % 4;
+
             while (!roundCards.isEmpty()) {
                 roundCards.remove(0);
             }
         }
 
         //score
-        /*if (c.getSuit() == "hearts") {
-            players.get((firstP + bigIndex)%4).updateScore(1);
+        for (CardPlayer player : players) {
+            for (Card c : player.getTakenCards()) {
+                if (c.getSuit() == "hearts") {
+                    player.updateScore(1);
+                    System.out.println(player.getName() + " scored with a " + c.getCleanName());
+                }
+                else if (c.getSuit() == "spades" && c.getValue() == 12) {
+                    player.updateScore(13);
+                    System.out.println(player.getName() + " scored 13 with a " + c.getCleanName());
+                }
+            }
         }
-        else if (c.getSuit() == "spades" && c.getValue() == 12) {
-            players.get((firstP + bigIndex)%4).updateScore(13);
-        }*/
     }
 }
