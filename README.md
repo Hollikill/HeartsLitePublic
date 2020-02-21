@@ -2,6 +2,12 @@
 
 Some **pair programming** for a [computer science class](https://lasacs.com/)
 
+## Authors
+
+Hollister Harper Ream [*Hollikill*](https://github.com/Hollikill)
+
+Gabriel James Keller [*itsGJK*](https://github.com/ItsGJK)
+
 ## What Files Do What
 
 Glossary for file types
