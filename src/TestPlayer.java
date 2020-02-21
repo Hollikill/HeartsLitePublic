@@ -1,7 +1,7 @@
 /*
 /    Authors:
 /        Hollister Ream
-/        Gabriel (I don't know his last name)
+/        Gabriel Keller
 */
 
 public class TestPlayer {

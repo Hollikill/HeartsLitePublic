@@ -23,6 +23,7 @@ public class CardGame {
         for (String str : names) {
             players.add(new CardPlayer(str, 0, new ArrayList<Card>()));
         }
+        printPlayersAtStart();
     }
 
     public CardGame () {
@@ -34,6 +35,7 @@ public class CardGame {
         }
         numberOfPlayers = 4;
         currentPlayer = 0;
+        printPlayersAtStart();
     }
 
     public void deal (int toWho) {
@@ -111,5 +113,39 @@ public class CardGame {
                 }
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        String ret = "";
+        ret += "***Hearts***\n" + players.get(0) + "\n" + players.get(1) + "\n" + players.get(2) + "\n" + players.get(3) + "\ndeck ->\n" + deckOfCards;
+        return ret;
+    }
+
+    public void printPlayersAtStart() {
+        System.out.println("Player" + players.get(0).getName() + " is a CardPlayer" + "Player" + players.get(1).getName() + " is a CardPlayer" + "Player" + players.get(2).getName() + " is a CardPlayer" + "Player" + players.get(3).getName() + " is a CardPlayer");
+    }
+
+    public void initGame() {
+        deckOfCards = new Deck();
+        for (CardPlayer c : players) {
+            ArrayList<Card> taken = c.getTakenCards();
+            ArrayList<Card> hand = c.getHand();
+            for (int d = taken.size() - 1; d >= 0; d--) {
+                taken.remove(d);
+            }
+            for (int d = hand.size() - 1; d >= 0; d--) {
+                hand.remove(d);
+            }
+        }
+        deckOfCards.shuffle();
+        deal(0);
+        deal(1);
+        deal(2);
+        deal(3);
+    }
+
+    public String cleanPlayerNames() {
+        return players.get(0).cleanName() + " " + players.get(1).cleanName() + " " + players.get(2).cleanName() + " " + players.get(3).cleanName();
     }
 }

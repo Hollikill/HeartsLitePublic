@@ -1,7 +1,7 @@
 /*
 /    Authors:
 /        Hollister Ream
-/        Gabriel (I don't know his last name)
+/        Gabriel Keller
 */
 
 public class Player {
@@ -41,5 +41,9 @@ public class Player {
     @Override
     public String toString(){
         return name + " " + score;
+    }
+
+    public String cleanName() {
+        return name + " (" + score + ")";
     }
 }
