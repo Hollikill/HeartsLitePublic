@@ -32,6 +32,10 @@ The *CardPlayer* and more complicated *CardPlayerLevel1* classes, which build of
 
 These classes pit the computer-controlled players, sometimes with human players, against each other to see which will come out victorious. Currently, this is *CardGame*, for testing only *CardPlayer* objects, and *CardGameImproved*, which takes an array of Player Classes larger than 4, and pits them off in rounds, switching out the order periodically to provide an equal footing for testing.
 
+#### Use of Tournament Classes
+
+To see the actual output of these classes, you must use the associated Debug Classes. In addition, for *CardGameImproved*, you must also configure what classes to actually test in the associated Debug Class.
+
 ### Local Player Classes
 
-Person-controlled player, none made so far
+Person-controlled player, not yet implemented
