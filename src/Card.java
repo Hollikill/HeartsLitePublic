@@ -20,21 +20,23 @@ public class Card implements Comparable<Object> {
         if (value < 11) { 
             name = "" + value;
         }
-        switch (value) {
-            case 11 : {
-                name = "J";
-            }
-            case 12 : {
-                name = "Q";
-            }
-            case 13 : {
-                name = "K";
-            }
-            case 14 : {
-                name = "A";
-            }
-            default : {
-                name = "";
+        else {
+            switch (value) {
+                case 11 : {
+                    name = "J";
+                }
+                case 12 : {
+                    name = "Q";
+                }
+                case 13 : {
+                    name = "K";
+                }
+                case 14 : {
+                    name = "A";
+                }
+                default : {
+                    name = "";
+                }
             }
         }
         if (suit.length() == 1) {
