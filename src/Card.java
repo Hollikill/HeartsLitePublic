@@ -15,6 +15,31 @@ public class Card implements Comparable<Object> {
         value = 0;
     }
 
+    public Card(String suit, int value) {
+        this.suit = suit;
+        this.value = value;
+        if (value < 11) { 
+            name = "" + value;
+        }
+        switch (value) {
+            case 11 : {
+                name = "J";
+            }
+            case 12 : {
+                name = "Q";
+            }
+            case 13 : {
+                name = "K";
+            }
+            case 14 : {
+                name = "A";
+            }
+            default : {
+                name = "";
+            }
+        }
+    }
+
     public Card(String name, String suit, int value) {
         this.name = name;
         this.suit = suit;
