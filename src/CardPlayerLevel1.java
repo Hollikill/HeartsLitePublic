@@ -8,12 +8,11 @@ import java.util.*;
 public class CardPlayerLevel1 extends CardPlayer {
     // Contructors
     public CardPlayerLevel1 () {
-        super("", 0, new ArrayList<Card>());
+        super("CardPlayerLevel1", 0, new ArrayList<Card>());
     }
     public CardPlayerLevel1 (String name, int score, ArrayList<Card> hand) {
         super(name, score, hand);
     }
-    
     
     // The important one. Card Choosing AI
     @Override
