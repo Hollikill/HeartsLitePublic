@@ -22,7 +22,6 @@ public class CardPlayerLevel1 extends CardPlayer {
         if (playedRound.size() != 0) {
             String suit = playedRound.get(0).getSuit();
             int val = 0;
-            ArrayList<Card> ofLeadSuit = new ArrayList<Card>();
             for (Card c : playedRound) {
                 if (c.getSuit() == suit) {
                     if (c.getValue() > val) {
@@ -30,6 +29,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                     }
                 }
             }
+            ArrayList<Card> ofLeadSuit = new ArrayList<Card>();
             for (Card c : hand) {
                 if (c.getSuit() == suit) {
                     ofLeadSuit.add(c);
@@ -99,7 +99,7 @@ public class CardPlayerLevel1 extends CardPlayer {
             else {
                 if (suit == "hearts") {
                     int handval = 0;
-                    int highestLowOfSuit = 0;
+                    int highestLowOfSuit = -1;
                     int index = 0;
                     for (Card c : ofLeadSuit) {
                         if (c.getValue() < val) {
@@ -109,6 +109,16 @@ public class CardPlayerLevel1 extends CardPlayer {
                             }
                         }
                         index++;
+                    }
+                    if (highestLowOfSuit == -1) {
+                        index = 0;
+                        for (Card c : ofLeadSuit) {
+                            if (c.getValue() > handval) {
+                                handval = c.getValue();
+                                highestLowOfSuit = index;
+                            }
+                            index++;
+                        }
                     }
                     handI = getHandIndex(ofLeadSuit.get(highestLowOfSuit));
                     playCard(handI, playedRound, playedGame);
@@ -129,7 +139,28 @@ public class CardPlayerLevel1 extends CardPlayer {
                         playCard(handI, playedRound, playedGame);
                     }
                     else {
-
+                        int handval = 0;
+                        int highestLowOfSuit = -1;
+                        int index = 0;
+                        for (Card c : ofLeadSuit) {
+                            if (c.getValue() < val && c.getValue() > handval) {
+                                handval = c.getValue();
+                                highestLowOfSuit = index;
+                            }
+                            index++;
+                        }
+                        if (highestLowOfSuit == -1) {
+                            index = 0;
+                            for (Card c : ofLeadSuit) {
+                                if (c.getValue() > handval) {
+                                    handval = c.getValue();
+                                    highestLowOfSuit = index;
+                                }
+                                index++;
+                            }
+                        }
+                        handI = getHandIndex(ofLeadSuit.get(highestLowOfSuit));
+                        playCard(handI, playedRound, playedGame);
                     }
                 }
             }
@@ -180,7 +211,7 @@ public class CardPlayerLevel1 extends CardPlayer {
             }
         }
         
-        System.out.println("Error: no options found");
+        System.out.println("CardPlayerLevel1 Error: no options found");
         return null;
     }
     
