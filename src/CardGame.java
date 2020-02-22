@@ -16,6 +16,8 @@ public class CardGame {
     
     public CardGame (String name, String names[], int num, int whichnum) {
         deckOfCards = new Deck();
+        roundCards = new ArrayList<Card>();
+        gameCards = new ArrayList<Card>();
         nameOfGame = name;
         numberOfPlayers = num;
         currentPlayer = whichnum;
@@ -28,10 +30,12 @@ public class CardGame {
 
     public CardGame () {
         deckOfCards = new Deck();
+        roundCards = new ArrayList<Card>();
+        gameCards = new ArrayList<Card>();
         nameOfGame = "";
         players = new ArrayList<CardPlayer>();
         for (int i = 0; i < 4; i++) {
-            players.add(new CardPlayer("", 0, new ArrayList<Card>()));
+            players.add(new CardPlayer("Player" + i, 0, new ArrayList<Card>()));
         }
         numberOfPlayers = 4;
         currentPlayer = 0;
@@ -69,7 +73,8 @@ public class CardGame {
             //play cards
             for (int p = 0; p < 4; p++) {
                 Card c = players.get((firstP + p)%4).chooseCard(roundCards, gameCards);
-                System.out.println(players.get((firstP + p)%4).getName() + " played the " + c.getCleanName());
+                // Game log for actions, shows who played what. !WARNING! may cause excessive clutter in output dialog if enabled
+                //System.out.println(players.get((firstP + p)%4).getName() + " played the " + c.getCleanName());
                 if (p == 0) {
                     leadSuit = c.getSuit();
                 }
@@ -77,7 +82,7 @@ public class CardGame {
 
             //analyze score
             int mostValue = 0;
-            int curIndex = -1;
+            int curIndex = 0;
             int bigIndex = 1;
             for (Card c : roundCards) {
                 if (c.getSuit() == leadSuit && c.getValue() > mostValue) {
@@ -105,11 +110,13 @@ public class CardGame {
             for (Card c : player.getTakenCards()) {
                 if (c.getSuit() == "hearts") {
                     player.updateScore(1);
-                    System.out.println(player.getName() + " scored with a " + c.getCleanName());
+                    // Game log for scoring, shows who scored what. !WARNING! may cause excessive clutter in output dialog if enabled
+                    //System.out.println(player.getName() + " scored with a " + c.getCleanName());
                 }
                 else if (c.getSuit() == "spades" && c.getValue() == 12) {
                     player.updateScore(13);
-                    System.out.println(player.getName() + " scored 13 with a " + c.getCleanName());
+                    // Game log for scoring, shows who scored what. !WARNING! may cause excessive clutter in output dialog if enabled
+                    //System.out.println(player.getName() + " scored 13 with a " + c.getCleanName());
                 }
             }
         }
@@ -123,7 +130,7 @@ public class CardGame {
     }
 
     public void printPlayersAtStart() {
-        System.out.println("Player" + players.get(0).getName() + " is a CardPlayer" + "Player" + players.get(1).getName() + " is a CardPlayer" + "Player" + players.get(2).getName() + " is a CardPlayer" + "Player" + players.get(3).getName() + " is a CardPlayer");
+        System.out.println("Player " + players.get(0).getName() + " is a " + players.get(0).getClass() + "\nPlayer " + players.get(1).getName() + " is a " + players.get(1).getClass() + "\nPlayer " + players.get(2).getName() + " is a " + players.get(2).getClass() + "\nPlayer " + players.get(3).getName() + " is a " + players.get(3).getClass());
     }
 
     public void initGame() {
@@ -147,5 +154,9 @@ public class CardGame {
 
     public String cleanPlayerNames() {
         return players.get(0).cleanName() + " " + players.get(1).cleanName() + " " + players.get(2).cleanName() + " " + players.get(3).cleanName();
+    }
+
+    public ArrayList<CardPlayer> getPlayers() {
+        return players;
     }
 }
