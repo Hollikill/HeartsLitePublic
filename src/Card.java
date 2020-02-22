@@ -16,7 +16,6 @@ public class Card implements Comparable<Object> {
     }
 
     public Card(String suit, int value) {
-        this.suit = suit;
         this.value = value;
         if (value < 11) { 
             name = "" + value;
@@ -37,6 +36,37 @@ public class Card implements Comparable<Object> {
             default : {
                 name = "";
             }
+        }
+        if (suit.length() == 1) {
+            switch (suit) {
+                case "s" : {
+                    this.suit = "spades";
+                }
+                case "c" : {
+                    this.suit = "clubs";
+                }
+                case "d" : {
+                    this.suit = "diamonds";
+                }
+                case "h" : {
+                    this.suit = "hearts";
+                }
+                case "spade" : {
+                    this.suit = "spades";
+                }
+                case "club" : {
+                    this.suit = "clubs";
+                }
+                case "diamond" : {
+                    this.suit = "diamonds";
+                }
+                case "heart" : {
+                    this.suit = "hearts";
+                }
+            }
+        }
+        else { 
+            this.suit = suit;
         }
     }
 
