@@ -45,7 +45,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                     qOSi++;
                 }
                 if (qOSIndex != -1) {
-                    playCard(qOSIndex, playedRound, playedGame);
+                    return playCard(qOSIndex, playedRound, playedGame);
                 }
                 if (suit == "hearts") {
                     int handval = 0;
@@ -58,7 +58,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                         }
                         index++;
                     }
-                    playCard(highest, playedRound, playedGame);
+                    return playCard(highest, playedRound, playedGame);
                 }
                 else {
                     ArrayList<Card> hearts = new ArrayList<Card>();
@@ -78,7 +78,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                             }
                             index++;
                         }
-                        playCard(highest, playedRound, playedGame);
+                        return playCard(highest, playedRound, playedGame);
                     }
                     else {
                         int handval = 0;
@@ -92,7 +92,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                             index++;
                         }
                         handI = getHandIndex(hearts.get(highestHeart));
-                        playCard(handI, playedRound, playedGame);
+                        return playCard(handI, playedRound, playedGame);
                     }
                 }
             }
@@ -121,7 +121,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                         }
                     }
                     handI = getHandIndex(ofLeadSuit.get(highestLowOfSuit));
-                    playCard(handI, playedRound, playedGame);
+                    return playCard(handI, playedRound, playedGame);
                 }
                 else {
                     if (playedRound.size() > 1) {
@@ -136,7 +136,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                             index++;
                         }
                         handI = getHandIndex(ofLeadSuit.get(highestOfSuit));
-                        playCard(handI, playedRound, playedGame);
+                        return playCard(handI, playedRound, playedGame);
                     }
                     else {
                         int handval = 0;
@@ -160,12 +160,12 @@ public class CardPlayerLevel1 extends CardPlayer {
                             }
                         }
                         handI = getHandIndex(ofLeadSuit.get(highestLowOfSuit));
-                        playCard(handI, playedRound, playedGame);
+                        return playCard(handI, playedRound, playedGame);
                     }
                 }
             }
         }
-        else if (playedRound.isEmpty()) {
+        else {
             if (playedGame.isEmpty()) {
                 for (int i = 0; i < hand.size(); i++) {
                     Card x = hand.get(i);
@@ -186,27 +186,24 @@ public class CardPlayerLevel1 extends CardPlayer {
                         }
                         index++;
                     }
-                    playCard(highest, playedRound, playedGame);
+                    return playCard(highest, playedRound, playedGame);
                 }
                 else {
-                    int val = 0;
                     int handval = 0;
                     int highestLow = 0;
                     int index = 0;
                     for (Card c : hand) {
-                        if (c.getValue() < val) {
-                            if (c.getValue() > handval) {
-                                handval = c.getValue();
-                                highestLow = index;
-                            }
-                            else if (c.getSuit() != "hearts" && c.getValue() >= (handval - 1)) {
-                                handval = c.getValue();
-                                highestLow = index;
-                            }
+                        if (c.getValue() < handval) {
+                            handval = c.getValue();
+                            highestLow = index;
+                        }
+                        else if (c.getSuit() != "hearts" && c.getValue() <= handval) {
+                            handval = c.getValue();
+                            highestLow = index;
                         }
                         index++;
                     }
-                    playCard(highestLow, playedRound, playedGame);
+                    return playCard(highestLow, playedRound, playedGame);
                 }
             }
         }

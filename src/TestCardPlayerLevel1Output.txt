@@ -1,0 +1,44 @@
+--- Testing inherited CardPlayer functionality --- 
+
+New CardPlayer -> Kara Jones (0) []
+After adding 7 specific cards. Player -> Kara Jones (0) [d3(3), h7(7), h9(9), s6(6), s7(7), c2(2), c3(3)]
+Played c2(2) at index 5 and updated score to 27 points. Player -> Kara Jones (27) [d3(3), h7(7), h9(9), s6(6), s7(7), c3(3)]
+Cards played in round -> []
+Cards played in game -> []
+
+ --- Testing new CardPlayerLevel1 functionality --- 
+
+1 :
+If the player has a card that matches the suit that was led, the player plays a random card that matches that suit
+2 :
+If the player does not have a card matching the suit that was led and the player has the Queen of Spades, the player plays it
+3 :
+If the player does not have a card matching the suit that was led and the player has at least one heart, the player plays their highest heart.
+4 :
+If the player does not have a card matching the suit that was led or any hearts, the player plays any other random card in their hand.
+
+Demonstrating Part 1 with two spades in hand and the led suit spades
+Adding -> 8 of spades to round and game
+Player state -> Kara Jones (27) [d3(3), h7(7), h9(9), s6(6), s7(7), c3(3)]
+Player state -> Kara Jones (27) [d3(3), h7(7), h9(9), s6(6), c3(3)], played the 7 of spades
+
+Demonstrating Part 2 with no diamonds and a queen of spades in hand and the led suit diamond
+Cleared round
+Cards played in round -> [s8(8), s7(7)]
+Added a diamond to round and game
+Cards played in round -> [d4(4)]
+Removed the 3 of diamonds from player hand, no diamonds in hand
+Added the Queen of spades to player hand
+Player state -> Kara Jones (27) [h7(7), h9(9), s6(6), sQ(12), c3(3)]
+Player state -> Kara Jones (27) [h7(7), h9(9), s6(6), c3(3)], played the Queen of spades
+
+Demonstrating Part 3 with the led suit diamonds and no diamonds and multiple hearts in hand
+Cards played in round -> [d4(4), sQ(12)]
+Player state -> Kara Jones (27) [h7(7), h9(9), s6(6), c3(3)]
+Player state -> Kara Jones (27) [h7(7), s6(6), c3(3)], played the 9 of hearts
+
+Demonstrating Part 4 with the led suit diamond and no diamonds or hearts in hand
+Player state -> Kara Jones (27) [h7(7), s6(6), c3(3)]
+Removing all hearts from hand
+Player state -> Kara Jones (27) [s6(6), c3(3)]
+Player state -> Kara Jones (27) [c3(3)], played the 6 of spades
