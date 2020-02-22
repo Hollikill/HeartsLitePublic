@@ -1,9 +1,9 @@
-import java.util.ArrayList;
-
 /*
 /    Author:
 /        Hollister Ream
 */
+
+import java.util.ArrayList;
 
 public class TestCardGame {
     public static void main (String args[]) {
