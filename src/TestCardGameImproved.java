@@ -18,12 +18,7 @@ public class TestCardGameImproved {
         players.add(new CardPlayer("CardPlayer3", 0, new ArrayList<Card>()));
         players.add(new CardPlayer("CardPlayer4", 0, new ArrayList<Card>()));
 
-        playGames(4, false, players);
-        //System.out.println();
-        //playGames(2000, false, players);
-        // for verification of acuracy
-        /*System.out.println();
-        playGames(1000000, false);*/
+        playGames(1, false, players);
         System.out.println();
     }
 

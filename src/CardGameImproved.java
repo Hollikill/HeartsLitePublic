@@ -192,7 +192,7 @@ public class CardGameImproved {
         for (int i = 0; i < 4; i++) {
             totConfigurations *= totPlayers.size() - i;
         }
-        for (int i = 1; i < totConfigurations + 1; i++) {
+        while (!((curConfig[0] == totPlayers.size() - 1 && curConfig[1] == totPlayers.size() - 2) && (curConfig[2] == totPlayers.size() - 3 && curConfig[3] == totPlayers.size() - 4))) {
             // verify that the current configuration is correct
             verifyConfig(curConfig);
 
@@ -213,6 +213,11 @@ public class CardGameImproved {
 
             // play the game with the current order
             playGame();
+
+            for (int num : curConfig) {
+                System.out.print(num + "");
+            }
+            System.out.println();
 
             // move to next configuration
             curConfig[3]++;
