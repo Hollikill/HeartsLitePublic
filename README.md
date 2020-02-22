@@ -1,6 +1,6 @@
 # Hearts Lite
 
-Some **pair programming** for a [computer science class](https://lasacs.com/)
+Some **pair programming** and **induvidual work** for a [computer science class](https://lasacs.com/)
 
 ## Authors
 
