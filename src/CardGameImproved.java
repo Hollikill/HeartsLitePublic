@@ -192,7 +192,7 @@ public class CardGameImproved {
         for (int i = 0; i < 4; i++) {
             totConfigurations *= totPlayers.size() - i;
         }
-        while (!((curConfig[0] == totPlayers.size() - 1 && curConfig[1] == totPlayers.size() - 2) && (curConfig[2] == totPlayers.size() - 3 && curConfig[3] == totPlayers.size() - 4))) {
+        for (int i = 0; i < totConfigurations; i++) {
             // verify that the current configuration is correct
             verifyConfig(curConfig);
 
@@ -214,10 +214,11 @@ public class CardGameImproved {
             // play the game with the current order
             playGame();
 
-            for (int num : curConfig) {
+            // prints the current order of players. !WARNING! may cause excessive output if enabled
+            /*for (int num : curConfig) {
                 System.out.print(num + "");
             }
-            System.out.println();
+            System.out.println();*/
 
             // move to next configuration
             curConfig[3]++;
@@ -240,17 +241,19 @@ public class CardGameImproved {
     }
     
     public void verifyConfigRepeat(int[] curConfig) {
-        while (curConfig[3] == curConfig[2] || curConfig[3] == curConfig[1] || curConfig[3] == curConfig[0]) {
-            curConfig[3]++;
-            verifyConfigSize(curConfig);
-        }
-        while (curConfig[2] == curConfig[1] || curConfig[2] == curConfig[0]) {
-            curConfig[2]++;
-            verifyConfigSize(curConfig);
-        }
-        while (curConfig[1] == curConfig[0]) {
-            curConfig[1]++;
-            verifyConfigSize(curConfig);
+        while (curConfig[3] == curConfig[2] || curConfig[3] == curConfig[1] || curConfig[3] == curConfig[0] || curConfig[2] == curConfig[1] || curConfig[2] == curConfig[0] || curConfig[1] == curConfig[0]) {
+            while (curConfig[3] == curConfig[2] || curConfig[3] == curConfig[1] || curConfig[3] == curConfig[0]) {
+                curConfig[3]++;
+                verifyConfigSize(curConfig);
+            }
+            while (curConfig[2] == curConfig[1] || curConfig[2] == curConfig[0]) {
+                curConfig[2]++;
+                verifyConfigSize(curConfig);
+            }
+            while (curConfig[1] == curConfig[0]) {
+                curConfig[1]++;
+                verifyConfigSize(curConfig);
+            }
         }
     }
     

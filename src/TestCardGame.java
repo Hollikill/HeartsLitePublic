@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class TestCardGame {
     public static void main (String args[]) {
-        playGames(4, true);
+        playGames(4, false);
         System.out.println();
-        playGames(2000, true);
+        playGames(2000, false);
         // for verification of acuracy
         /*System.out.println();
         playGames(1000000, false);*/
