@@ -9,7 +9,7 @@ public class Player {
     protected int score;
 
     public Player() {
-        name = "";
+     name = "";
         score = 0;
     }
 

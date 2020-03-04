@@ -65,8 +65,16 @@ public class CardGameImproved {
         
         int firstP = -1;
         
+        Card c2 = new Card("c", 2);
         for (CardPlayer c : players) {
-            if (c.has2Club()) {
+            ArrayList<Card> cHand = c.getHand();
+            boolean cHas = false;
+            for (Card card : cHand) {
+                if (card.equals(c2)) {
+                    cHas = true;
+                }
+            }
+            if (cHas) {
                 firstP = players.indexOf(c);
             }
         }
@@ -172,8 +180,9 @@ public class CardGameImproved {
     public String cleanPlayerNames() {
         String str = "";
 
-        for (CardPlayer c : totPlayers) {
-            str += c.cleanName() + " ";
+        for (CardPlayer pl : players) {
+            String temp = pl + "";
+            str += temp.substring(0, temp.indexOf(" ")) + " (" + temp.substring(temp.indexOf(" ")) + ") ";
         }
 
         return str;
