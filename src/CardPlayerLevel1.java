@@ -18,6 +18,7 @@ public class CardPlayerLevel1 extends CardPlayer {
     @Override
     public Card chooseCard(ArrayList<Card> playedRound, ArrayList<Card> playedGame) {
         int handI = 0;
+        // has anyone played a card in the round yet
         if (playedRound.size() != 0) {
             String suit = playedRound.get(0).getSuit();
             int val = 0;
@@ -34,6 +35,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                     ofLeadSuit.add(c);
                 }
             }
+            // do I have any cards of the lead suit
             if (ofLeadSuit.isEmpty()) {
                 int qOSIndex = -1;
                 int qOSi = 0;
@@ -43,6 +45,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                     }
                     qOSi++;
                 }
+                // play queen of spades if possible
                 if (qOSIndex != -1) {
                     return playCard(qOSIndex, playedRound, playedGame);
                 }

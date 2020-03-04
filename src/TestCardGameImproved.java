@@ -18,7 +18,7 @@ public class TestCardGameImproved {
         players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
         players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
         
-        playGames(10000, 1000, false, players);
+        playGames(2000, 100, false, players);
         System.out.println();
     }
     

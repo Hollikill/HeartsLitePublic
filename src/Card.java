@@ -132,7 +132,6 @@ public class Card implements Comparable<Object> {
             }
 
         }
-        else throw new IllegalArgumentException("Cannot supply object type " + o.getClass() + " to Card#compareTo");
     }
 
     @Override
@@ -144,7 +143,7 @@ public class Card implements Comparable<Object> {
     public boolean equals(Object o) {
         if(o instanceof Card){
             Card other = (Card)o;
-            return value == other.getValue() && name.equals(other.getName()) && suit.equals(other.getSuit());
+            return value == other.getValue() && suit.charAt(0) == other.getSuit().charAt(0);
         }
         return false;
     }

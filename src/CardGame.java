@@ -80,9 +80,8 @@ public class CardGame {
 
             //play cards
             for (int p = 0; p < 4; p++) {
+                System.out.println(players.get((firstP + p)%4).getHand());
                 Card c = players.get((firstP + p)%4).chooseCard(roundCards, gameCards);
-                // Game log for actions, shows who played what. !WARNING! may cause excessive clutter in output dialog if enabled
-                //System.out.println(players.get((firstP + p)%4).getName() + " played the " + c.getCleanName());
                 if (p == 0) {
                     leadSuit = c.getSuit();
                 }
@@ -118,13 +117,9 @@ public class CardGame {
             for (Card c : player.getTakenCards()) {
                 if (c.getSuit() == "hearts") {
                     player.updateScore(1);
-                    // Game log for scoring, shows who scored what. !WARNING! may cause excessive clutter in output dialog if enabled
-                    //System.out.println(player.getName() + " scored with a " + c.getCleanName());
                 }
                 else if (c.getSuit() == "spades" && c.getValue() == 12) {
                     player.updateScore(13);
-                    // Game log for scoring, shows who scored what. !WARNING! may cause excessive clutter in output dialog if enabled
-                    //System.out.println(player.getName() + " scored 13 with a " + c.getCleanName());
                 }
             }
         }
