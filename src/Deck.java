@@ -28,10 +28,9 @@ public class Deck {
         cards.clear();
         for(int i = 0; i < VALUES.length; i++){
             int value = VALUES[i];
-            String name = NAMES[i];
             //public Card(String name, String suit, int value) {
             for(int x = 0; x < SUITS.length; x++){
-                cards.add(new Card(name, SUITS[x], value));
+                cards.add(new Card(SUITS[x], value));
             }
         }
     }
