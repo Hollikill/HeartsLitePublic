@@ -130,7 +130,9 @@ public class Card implements Comparable<Object> {
                     return 1;
                 }
             }
-
+        }
+        else {
+            return -2;
         }
     }
 
@@ -143,7 +145,7 @@ public class Card implements Comparable<Object> {
     public boolean equals(Object o) {
         if(o instanceof Card){
             Card other = (Card)o;
-            return value == other.getValue() && suit.charAt(0) == other.getSuit().charAt(0);
+            return value == other.getValue() && suit.toLowerCase().charAt(0) == other.getSuit().toLowerCase().charAt(0);
         }
         return false;
     }
