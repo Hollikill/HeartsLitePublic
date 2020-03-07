@@ -26,7 +26,7 @@ public class TestCardGameImproved {
         players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
         players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
         
-        playGames(2000, 5, false, players);
+        playGames(20000, 1000, false, players);
         System.out.println();
     }
     
@@ -80,7 +80,8 @@ public class TestCardGameImproved {
         // print all scores
         System.out.println("Total score = " + totalScore);
         for (CardPlayer p : allPlayers) {
-            System.out.println(p.getName() + " took " + (((double)(p.getScore()) / (double)(totalScore)) * 100) + "% of points");
+            String percent = (((double)(p.getScore()) / (double)(totalScore)) * 100) + "";
+            System.out.println(p.getName() + " took " + percent.substring(0, 6) + "% of points");
         }
     }
 }
