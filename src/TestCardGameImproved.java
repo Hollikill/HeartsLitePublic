@@ -3,10 +3,18 @@
 /        Hollister Ream
 */
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class TestCardGameImproved {
-    public static void main (String args[]) {
+    public static void main(String args[]) {
+        try {
+            //this line of code from https://stackoverflow.com/questions/2979383/java-clear-the-console
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+
         ArrayList<CardPlayer> players = new ArrayList<CardPlayer>();
         /*
         /
@@ -18,7 +26,7 @@ public class TestCardGameImproved {
         players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
         players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
         
-        playGames(2000, 100, false, players);
+        playGames(2000, 5, false, players);
         System.out.println();
     }
     
@@ -39,14 +47,17 @@ public class TestCardGameImproved {
                 if (i%(games/progressSegments) == 0) {
                     segementsCompleted++;
                     
-                    if (segementsCompleted != 1) {
-                        // code segment from https://stackoverflow.com/questions/7522022/how-to-delete-stuff-printed-to-console-by-system-out-println, for erasing lines in consle
-                        System.out.print(String.format("\033[%dA",1));
-                        System.out.print("\033[2K");
-                    }
-                    
+                    // erases previous progress print
+                    System.out.print("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+                    System.out.print("                              ");
+                    System.out.print("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
                     String str = "Computed " + (((double)((int)(((double)segementsCompleted / (double)progressSegments) * 10000)))/100) + "%";
-                    System.out.println(str);
+                    System.out.print(str);
+
+                    if (segementsCompleted == progressSegments) {
+                        System.out.println();
+                    }
                 }
             }
             
