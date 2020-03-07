@@ -35,7 +35,7 @@ public class CardPlayerLevel1 extends CardPlayer {
                     ofLeadSuit.add(c);
                 }
             }
-            // do I have any cards of the lead suit
+            // do I not have any cards of the lead suit
             if (ofLeadSuit.isEmpty()) {
                 int qOSIndex = -1;
                 int qOSi = 0;
