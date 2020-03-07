@@ -35,7 +35,3 @@ These classes pit the computer-controlled players, sometimes with human players,
 #### Use of Tournament Classes
 
 To see the actual output of these classes, you must use the associated Debug Classes. In addition, for *CardGameImproved*, you must also configure what classes to actually test in the associated Debug Class.
-
-### Local Player Classes
-
-Person-controlled player, not yet implemented
