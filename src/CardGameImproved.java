@@ -65,12 +65,11 @@ public class CardGameImproved {
         
         int firstP = -1;
         
-        Card c2 = new Card("c", 2);
         for (CardPlayer c : players) {
             ArrayList<Card> cHand = c.getHand();
             boolean cHas = false;
             for (Card card : cHand) {
-                if (card.equals(c2)) {
+                if (card.getValue() == 2 && card.getSuit().charAt(0) == 'c') {
                     cHas = true;
                 }
             }

@@ -108,7 +108,7 @@ public class CardPlayer extends Player {
     public boolean has2Club () {
         boolean b = false;
         for (Card c : hand) {
-            if (c.getValue() == 2 && c.getSuit() == "clubs") {
+            if (c.getValue() == 2 && c.getSuit().charAt(0) == 'c') {
                 b = true;
             }
         }
