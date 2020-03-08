@@ -5,12 +5,12 @@
 
 import java.util.*;
 
-public class CardPlayerAI extends CardPlayer {
+public class CardPlayerLevel2 extends CardPlayer {
 	// Contructors
-	public CardPlayerAI () {
+	public CardPlayerLevel2 () {
 		super("CardPlayerLevel1", 0, new ArrayList<Card>());
 	}
-	public CardPlayerAI (String name, int score, ArrayList<Card> hand) {
+	public CardPlayerLevel2 (String name, int score, ArrayList<Card> hand) {
 		super(name, score, hand);
 	}
 	
@@ -648,7 +648,6 @@ public class CardPlayerAI extends CardPlayer {
 		System.out.println("CardPlayerAI error: no viable options");
 		return null;
 	}
-	
 	public Card chooseCard(ArrayList<Card> playedRound, ArrayList<Card> playedGame) {
 		return chooseCard(playedRound, playedGame, 4);
 	}

@@ -24,7 +24,7 @@ public class TestCardGameImproved {
         players.add(new CardPlayer("Player1", 0, new ArrayList<Card>()));
         players.add(new CardPlayer("Player2", 0, new ArrayList<Card>()));
         players.add(new CardPlayerLevel1("Player3", 0, new ArrayList<Card>()));
-        players.add(new CardPlayerAI("Player4", 0, new ArrayList<Card>()));
+        players.add(new CardPlayerLevel2("Player4", 0, new ArrayList<Card>()));
         
         playGames(200, 200, false, players);
         System.out.println();

@@ -26,13 +26,13 @@ The *Deck*, *Card*, and *Player* classes, which are basic frameworks to support 
 
 ### Player Classes
 
-The *CardPlayer*, *CardPlayerLevel1*, and *CardPlayerAI* classes, which build off of the *Player* class to provide a method to decide what card is best to play in the moment, based on what is in the player's hand at the moment, and what has been played in the round and game.
+The *CardPlayer*, *CardPlayerLevel1*, and *CardPlayerLevel2* classes, which build off of the *Player* class to provide a method to decide what card is best to play in the moment, based on what is in the player's hand at the moment, and what has been played in the round and game.
 
 #### Levels of Difficulty
 
 *CardPlayer* - typical difficulty
 *CardPlayerLevel1* - slightly above average
-*CardPlayerAI* - very good
+*CardPlayerLevel2* - very good
 
 #### Flow Charts
 
