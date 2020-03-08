@@ -16,7 +16,7 @@ public class CardPlayerAI extends CardPlayer {
 	
 	// The important one. Card Choosing AI
 	public Card chooseCard(ArrayList<Card> playedRound, ArrayList<Card> playedGame, int playersNum) {
-		if (playedRound.size() != 0) {
+		if (playedRound.size() == 0) {
 			/* MODE:
 			FIRST */
 			boolean qOS = true;

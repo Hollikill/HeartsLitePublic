@@ -23,10 +23,10 @@ public class TestCardGameImproved {
         */
         players.add(new CardPlayer("CardPlayer1", 0, new ArrayList<Card>()));
         players.add(new CardPlayer("CardPlayer2", 0, new ArrayList<Card>()));
-        players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
-        players.add(new CardPlayerLevel1("CardPlayerAdvanced", 0, new ArrayList<Card>()));
+        players.add(new CardPlayerAI("CardPlayerAdvanced", 0, new ArrayList<Card>()));
+        players.add(new CardPlayerAI("CardPlayerAdvanced", 0, new ArrayList<Card>()));
         
-        playGames(20000, 1000, false, players);
+        playGames(500, 100, false, players);
         System.out.println();
     }
     
