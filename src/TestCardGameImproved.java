@@ -18,15 +18,15 @@ public class TestCardGameImproved {
         ArrayList<CardPlayer> players = new ArrayList<CardPlayer>();
         /*
         /
-        /       This is where you decide what players to have. !WARNING! must be at least 4 players. For safety, do not remove these 4 initial players
+        /       This is where you decide what players to have. !WARNING! must be at least 4 players.
         /
         */
-        players.add(new CardPlayer("CardPlayer1", 0, new ArrayList<Card>()));
-        players.add(new CardPlayer("CardPlayer2", 0, new ArrayList<Card>()));
-        players.add(new CardPlayerAI("CardPlayerAdvanced", 0, new ArrayList<Card>()));
-        players.add(new CardPlayerAI("CardPlayerAdvanced", 0, new ArrayList<Card>()));
+        players.add(new CardPlayer("Player1", 0, new ArrayList<Card>()));
+        players.add(new CardPlayer("Player2", 0, new ArrayList<Card>()));
+        players.add(new CardPlayerLevel1("Player3", 0, new ArrayList<Card>()));
+        players.add(new CardPlayerAI("Player4", 0, new ArrayList<Card>()));
         
-        playGames(500, 100, false, players);
+        playGames(200, 200, false, players);
         System.out.println();
     }
     
