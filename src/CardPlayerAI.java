@@ -19,6 +19,269 @@ public class CardPlayerAI extends CardPlayer {
 		if (playedRound.size() != 0) {
 			/* MODE:
 			FIRST */
+			boolean qOS = true;
+			if (true) {
+				for (Card c : playedGame) {
+					if (c.getSuit() == "spades" && c.getValue() == 12) {
+						qOS = true;
+					}
+				}
+				for (Card c : hand) {
+					if (c.getSuit() == "spades" && c.getValue() == 12) {
+						qOS = true;
+					}
+				}
+			}
+			if (qOS) {
+				if (!playedGame.isEmpty()) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() != "hearts") {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+				else {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() == "hearts" && c.getValue() < 5) {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+				if (playedGame.isEmpty()) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() != "hearts") {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+				if (true) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() == "hearts") {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+			}
+			else {
+				if (true) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() == "diamonds" || c.getSuit() == "clubs")
+						cardsOfType.add(c);
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+				boolean hasLowHeart = true;
+				if (true) {
+					int lowBound = 15;
+					for (Card c : hand) {
+						if (c.getValue() < lowBound && c.getSuit() == "hearts") {
+							lowBound = c.getValue();
+						}
+					}
+					ArrayList<Integer> knownVals = new ArrayList<Integer>();
+					for (Card c : playedGame) {
+						if (c.getSuit() == "hearts") {
+							knownVals.add(c.getValue());
+						}
+					}
+					int i = lowBound;
+					while (i > 2) {
+						if (!knownVals.contains(i)) {
+							hasLowHeart = false;
+						}
+						i--;
+					}
+					if (hasLowHeart) {
+						for (Card c : hand) {
+							if (c.getSuit() == "hearts") {
+								knownVals.add(c.getValue());
+							}
+						}
+						i = lowBound;
+						boolean tempBool = false;
+						while (i > 2) {
+							if (!knownVals.contains(i)) {
+								tempBool = true;
+							}
+							i--;
+						}
+						if (tempBool == false) {
+							hasLowHeart = false;
+						}
+					}
+				}
+				if (hasLowHeart) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() == "hearts") {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+				if (true) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() == "spades" && c.getValue() < 12) {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+				if (true) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() == "hearts") {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+				if (true) {
+					ArrayList<Card> cardsOfType = new ArrayList<Card>();
+					for (Card c : hand) {
+						//check if card meet reqs
+						if (c.getSuit() == "spades" && c.getValue() > 12) {
+							cardsOfType.add(c);
+						}
+					}
+					if (!cardsOfType.isEmpty()) {
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : cardsOfType) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
+							}
+							index++;
+						}
+						int loc = getHandIndex(cardsOfType.get(highest));
+						return playCard(loc, playedRound, playedGame);
+					}
+				}
+			}
 		}
 		else {
 			//get led suit
@@ -339,29 +602,30 @@ public class CardPlayerAI extends CardPlayer {
 							knownVals.add(c.getValue());
 						}
 						int i = lowBound;
+						boolean tempBool = false;
 						while (i < 15) {
-							boolean tempBool = false;
 							if (!knownVals.contains(i)) {
 								tempBool = true;
 							}
-							if (!tempBool) {
-								canBeSaved = false;
-							}
+							i++;
+						}
+						if (!tempBool) {
+							canBeSaved = false;
 						}
 					}
 					if (canBeSaved) {
-							int handval = 15;
-							int highest = 0;
-							int index = 0;
-							for (Card c : ofLeadSuit) {
-								if (c.getValue() < handval) {
-									handval = c.getValue();
-									highest = index;
-								}
-								index++;
+						int handval = 15;
+						int highest = 0;
+						int index = 0;
+						for (Card c : ofLeadSuit) {
+							if (c.getValue() < handval) {
+								handval = c.getValue();
+								highest = index;
 							}
-							int loc = getHandIndex(ofLeadSuit.get(highest));
-							return playCard(loc, playedRound, playedGame);
+							index++;
+						}
+						int loc = getHandIndex(ofLeadSuit.get(highest));
+						return playCard(loc, playedRound, playedGame);
 					}
 					else {
 						int handval = 0;
