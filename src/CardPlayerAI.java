@@ -649,6 +649,10 @@ public class CardPlayerAI extends CardPlayer {
 		return null;
 	}
 	
+	public Card chooseCard(ArrayList<Card> playedRound, ArrayList<Card> playedGame) {
+		return chooseCard(playedRound, playedGame, 4);
+	}
+
 	public int getHandIndex(Card i) {
 		int index = 0;
 		int desiredI = 0;
